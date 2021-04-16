@@ -71,8 +71,8 @@ extern "C" {
 #define PLATFORM_LED_AP2P_PIN        LED5_Pin         /*!< GPIO pin used for LED AP2P */
 #define PLATFORM_LED_AP2P_PORT       LED5_GPIO_Port    /*!< GPIO port used for LED AP2P*/
 
-#define PLATFORM_USER_BUTTON_PIN     B1_Pin          /*!< GPIO pin user button       */
-#define PLATFORM_USER_BUTTON_PORT    B1_GPIO_Port    /*!< GPIO port user button      */
+#define PLATFORM_USER_BUTTON_PIN     GPIO_PC13_Pin          /*!< GPIO pin user button       */
+#define PLATFORM_USER_BUTTON_PORT    GPIO_PC13_GPIO_Port    /*!< GPIO port user button      */
 /**
   * @}
   */

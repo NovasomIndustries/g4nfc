@@ -1,35 +1,6 @@
-/******************************************************************************
- * @attention
- *
- * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
- * All rights reserved.</center></h2>
- *
- * This software component is licensed by ST under Ultimate Liberty license
- * SLA0094, the "License"; You may not use this file except in compliance with
- * the License. You may obtain a copy of the License at:
- *                             www.st.com/SLA0094
- *
-******************************************************************************/
-
-/*
- *      PROJECT:   NDEF firmware
- *      Revision:
- *      LANGUAGE:  ISO C99
- */
-
-/*! \file
- *
- *  \author
- *
- *  \brief NDEF message dump utils
- *
- */
-
-/*
- ******************************************************************************
- * INCLUDES
- ******************************************************************************
- */
+#include "main.h"
+#include "demo_selection.h"
+#include "demo.h"
 
 #include "platform.h"
 #include "st_errno.h"
@@ -40,6 +11,7 @@
 #include "ndef_types_mime.h"
 #include "ndef_dump.h"
 
+#ifdef	DEMO_NDEF
 
 /*
  ******************************************************************************
@@ -711,3 +683,4 @@ ReturnCode ndefBuffer8Print(const char* prefix, const ndefConstBuffer8* bufStrin
 
     return ndefBufferPrint(prefix, &buf, suffix);
 }
+#endif

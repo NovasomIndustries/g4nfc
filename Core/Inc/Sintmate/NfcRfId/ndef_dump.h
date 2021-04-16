@@ -1,22 +1,3 @@
-/**
-  ******************************************************************************
- * @file    ndef_dump.h
- * @author  MMY Application Team
- * @brief   Header for ndef_dump.c module
-/******************************************************************************
- * @attention
- *
- * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
- * All rights reserved.</center></h2>
- *
- *  This software component is licensed by ST under Ultimate Liberty license
- * SLA0094, the "License"; You may not use this file except in compliance with
- * the License. You may obtain a copy of the License at:
- *                             www.st.com/SLA0094
- *
- *
-******************************************************************************/
-
 /*
  *      PROJECT:   NDEF firmware
  *      Revision:

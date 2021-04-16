@@ -1,42 +1,15 @@
-/******************************************************************************
- * @attention
- *
- * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
- * All rights reserved.</center></h2>
- *
- * This software component is licensed by ST under Ultimate Liberty license
- * SLA0094, the "License"; You may not use this file except in compliance with
- * the License. You may obtain a copy of the License at:
- *                             www.st.com/SLA0094
- *
-******************************************************************************/
 
-/*! \file
- *
- *  \author 
- *
- *  \brief Demo application
- *
- *  This demo shows how to poll for several types of NFC cards/devices and how 
- *  to exchange data with these devices, using the RFAL library.
- *
- *  This demo does not fully implement the activities according to the standards,
- *  it performs the required to communicate with a card/device and retrieve 
- *  its UID. Also blocking methods are used for data exchange which may lead to
- *  long periods of blocking CPU/MCU.
- *  For standard compliant example please refer to the Examples provided
- *  with the RFAL library.
- * 
- */
- 
 /*
  ******************************************************************************
  * INCLUDES
  ******************************************************************************
  */
+#include "main.h"
 #include "demo.h"
+#include "demo_selection.h"
 #include "utils.h"
 #include "rfal_nfc.h"
+#ifdef	DEMO_POLLING
 
 #if (defined(ST25R3916) || defined(ST25R95)) && RFAL_FEATURE_LISTEN_MODE
 #include "demo_ce.h"
@@ -455,7 +428,7 @@ void demoCycle( void )
                 {
                     case RFAL_NFC_POLL_TYPE_NFCA:
                     case RFAL_NFC_POLL_TYPE_NFCF:
-                        break; /* When being in card emulation don’t delay as some polling devices (phones) rely on tags to be re-discoverable */
+                        break; /* When being in card emulation donï¿½t delay as some polling devices (phones) rely on tags to be re-discoverable */
                     default:
                         platformDelay(500); /* Delay before re-starting polling loop to not flood the UART log with re-discovered tags */
                 }
@@ -758,20 +731,4 @@ ReturnCode demoTransceiveBlocking( uint8_t *txBuf, uint16_t txBufSize, uint8_t *
     return err;
 }
 
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+#endif

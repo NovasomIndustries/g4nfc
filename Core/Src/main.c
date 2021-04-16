@@ -60,6 +60,7 @@ static void MX_USART2_UART_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint8_t globalCommProtectCnt = 0;
+uint8_t capacitance = 0;
 /* USER CODE END 0 */
 
 /**
@@ -92,8 +93,8 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   MX_USART2_UART_Init();
-  logUsartInit(&huart2);
   /* USER CODE BEGIN 2 */
+  logUsartInit(&huart2);
   if( !demoIni() )
   {
     /*
@@ -146,6 +147,7 @@ int main(void)
   while (1)
   {
 	    demoCycle();
+	    st25r3916MeasureCapacitance(&capacitance);
 
     /* USER CODE END WHILE */
 
@@ -322,11 +324,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(NFC_SPI_SS_GPIO_Port, NFC_SPI_SS_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pin : B1_Pin */
-  GPIO_InitStruct.Pin = B1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+  /*Configure GPIO pin : GPIO_PC13_Pin */
+  GPIO_InitStruct.Pin = GPIO_PC13_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIO_PC13_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LED5_Pin LED4_Pin */
   GPIO_InitStruct.Pin = LED5_Pin|LED4_Pin;
